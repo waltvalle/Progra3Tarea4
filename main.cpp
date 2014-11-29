@@ -100,21 +100,28 @@ bool existe(string nombre_archivo, string str)
 int obtenerMayor(string nombre)
 {
     ifstream leer(nombre.c_str());
-    //
     leer.seekg(0,ios::end);
+    // el seekg recibe la instruccion de leer hasta el final del archivo
     int cant=leer.tellg();
+    // esta variable almacenara la cantidad de espacio que ocupa el grupo de numeros
     leer.seekg(0,ios::beg);
+    //este seekg apunta al inicio del archivo
     int mayor=-99999;
-
+    // una int con un numero en negativo
+    //el for avanzara en tanto i sea menor que el largo del grupo
     for(int i=leer.tellg();i<cant;i++)
     {
+        //una vez se ejecuta el for se crea una variable
         int num;
+        //se escribira como archivo binario lo que tenga num
         leer.read((char*)&num,4);
+        //si lo que se escribio es menor que num entonces mayor sera igual a num
         if(mayor<num)
         {
             mayor=num;
         }
     }
+    // se devuelve lo que se almaceno en la variable mayor
     return mayor;
 }
 
