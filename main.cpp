@@ -93,7 +93,21 @@ string leerStringBinario(string nombre_archivo)
 //Devuelve true si encuentra str (dada) en un archivo dado el nombre
 bool existe(string nombre_archivo, string str)
 {
-    return false;
+    ifstream leer(nombre_archivo.c_str());
+    int cant=0;
+    //ifstream lee el archivo. La primera variable almacenara la cantidad, la sefunda sera un string vacio que usara despues
+    string word;
+    for(int i=0;i<cant;i++)
+    {
+        //leer apunta a lo que tenga word
+        leer>>word;
+        //si word es igual a lo que tenga cadena entonces devolvera true, de lo contrario sera falsa
+        if(word == str)
+            {
+                return true;
+            }
+        return false;
+    }
 }
 
 //Devuelve el numero mayor dado el nombre de un archivo binario
